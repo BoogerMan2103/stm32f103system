@@ -38,16 +38,18 @@
 #ifndef MBED_BME280_H
 #define MBED_BME280_H
 
+#define _DEBUG
+
 #include "mbed.h"
 
 #define DEFAULT_SLAVE_ADDRESS (0x76 << 1)
 
-// #ifdef _DEBUG
-// extern Serial pc;
-// #define DEBUG_PRINT(...) pc.printf(__VA_ARGS__)
-// #else
-// #define DEBUG_PRINT(...)
-// #endif
+#ifdef _DEBUG
+extern Serial pc;
+#define DEBUG_PRINT(...) pc.printf(__VA_ARGS__)
+#else
+#define DEBUG_PRINT(...)
+#endif
 
 /**  Interface for controlling BME280 Combined humidity and pressure sensor
  *
